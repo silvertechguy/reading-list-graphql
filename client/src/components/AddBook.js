@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { getAuthorsQuery, addBookMutation } from "../queries/queries";
+import {
+  getAuthorsQuery,
+  addBookMutation,
+  getBooksQuery,
+} from "../queries/queries";
 
 const AddBook = () => {
-  const [addBook, { data: addBookData }] = useMutation(addBookMutation);
+  const [addBook, { data: addBookData }] = useMutation(addBookMutation, {
+    refetchQueries: [{ query: getBooksQuery }],
+  });
   const {
     loading: authorsLoading,
     error: authorsError,
