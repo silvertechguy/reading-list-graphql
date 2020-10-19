@@ -7,6 +7,8 @@ const {
   GraphQLList,
 } = require("graphql");
 const _ = require("lodash");
+const Book = require("../models/book");
+const Author = require("../models/author");
 
 // dummy data
 var books = [
@@ -74,11 +76,17 @@ const RootQuery = new GraphQLObjectType({
     },
     books: {
       type: new GraphQLList(BookType),
-      resolve: (parent, args) => books,
+      resolve: (parent, args) => {
+        const books = Book.find({});
+        return books;
+      },
     },
     authors: {
       type: new GraphQLList(AuthorType),
-      resolve: (parent, args) => authors,
+      resolve: (parent, args) => {
+        const authors = Author.find({});
+        return authors;
+      },
     },
   },
 });
