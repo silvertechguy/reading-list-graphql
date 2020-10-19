@@ -102,6 +102,18 @@ const Mutation = new GraphQLObjectType({
         return author.save();
       },
     },
+    addBook: {
+      type: BookType,
+      args: {
+        name: { type: GraphQLString },
+        genre: { type: GraphQLString },
+        authorId: { type: GraphQLID },
+      },
+      resolve: (parent, { name, genre, authorId }) => {
+        const book = new Book({ name, genre, authorId });
+        return book.save();
+      },
+    },
   },
 });
 
