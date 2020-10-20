@@ -1,5 +1,5 @@
 # Silver's Reading List
-> Reading List website built with the MERN stack & GraphQL Apollo.
+> Reading List App built with the MERN stack & GraphQL Apollo.
 ![screenshot](https://github.com/silvertechguy/reading-list-graphql/blob/main/screenshot.png)
 
 
