@@ -13,7 +13,15 @@ const BookList = () => {
           <div>Loading books...</div>
         ) : (
           data.books.map((book) => (
-            <li key={book.id} onClick={() => setSelected(book.id)}>
+            <li
+              key={book.id}
+              onClick={() => {
+                if (selected === book.id) {
+                  return setSelected(null);
+                }
+                setSelected(book.id);
+              }}
+            >
               {book.name}
             </li>
           ))
